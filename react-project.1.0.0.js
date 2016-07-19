@@ -50,24 +50,38 @@
 	var ReactDOM = __webpack_require__(33);
 	
 	// COMPONENT
-	var Person = function Person(props) {
-	    // Returns React element
-	    return React.createElement(
-	        'div',
-	        { className: 'person' },
-	        React.createElement(
+	var Person = React.createClass({
+	    displayName: 'Person',
+	
+	    getInitialState: function getInitialState() {
+	        return {
+	            highlight: false
+	        };
+	    },
+	    onClick: function onClick() {
+	        this.setState({
+	            highlight: !this.state.highlight
+	        });
+	    },
+	    render: function render() {
+	        var classes = 'person ' + (this.state.highlight ? 'highlight' : '');
+	        return React.createElement(
 	            'div',
-	            { className: 'person-name' },
-	            props.name
-	        ),
-	        React.createElement('img', { className: 'person-img', src: props.imageUrl }),
-	        React.createElement(
-	            'div',
-	            { className: 'person-job' },
-	            props.job
-	        )
-	    );
-	};
+	            { className: classes, onClick: this.onClick },
+	            React.createElement(
+	                'div',
+	                { className: 'person-name' },
+	                this.props.name
+	            ),
+	            React.createElement('img', { className: 'person-img', src: this.props.imageUrl }),
+	            React.createElement(
+	                'div',
+	                { className: 'person-job' },
+	                this.props.job
+	            )
+	        );
+	    }
+	});
 	
 	Person.defaultProps = {
 	    imageUrl: 'http://www.gravatar.com/avatar/?d=identicon'
