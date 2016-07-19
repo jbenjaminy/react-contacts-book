@@ -28,9 +28,6 @@ var PersonList = function() {
                     name="Donald Knuth"
                     imageUrl="http://www-cs-faculty.stanford.edu/~uno/don.gif"
                     job="Clever chap" />
-                <Person
-                    name="Ben Young"
-                    job="Thinkful student" />
             </div>
         );
     };
