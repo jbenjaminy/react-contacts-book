@@ -13,6 +13,10 @@ var Person = function(props) {
     );
 };
 
+Person.defaultProps = {
+    imageUrl: 'http://www.gravatar.com/avatar/?d=identicon'
+};
+
 var PersonList = function() {
         return (
             <div className="person-list">
@@ -24,6 +28,9 @@ var PersonList = function() {
                     name="Donald Knuth"
                     imageUrl="http://www-cs-faculty.stanford.edu/~uno/don.gif"
                     job="Clever chap" />
+                <Person
+                    name="Ben Young"
+                    job="Thinkful student" />
             </div>
         );
     };
