@@ -2,36 +2,31 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 // COMPONENT
-var Person = function() {
-    // Variables
-    var name = 'Derek Zoolander';
-    var imageUrl = 'http://uifaces.com/assets/static/images/zoolander.jpg';
-    var job = 'Male model';
+var Person = function(props) {
     // Returns React element
     return (
         <div className="person">
-            <div className="person-name">{name}</div>
-            <img className="person-img" src={imageUrl}/>
-            <div className="person-job">
-                {job}
-            </div>
+            <div className="person-name">{props.name}</div>
+            <img className="person-img" src={props.imageUrl}/>
+            <div className="person-job">{props.job}</div>
         </div>
     );
 };
 
-var PersonList = React.createClass({
-    render: function() {
-        var people = [];
-        for (var i=0; i<5; i++) {
-            people.push(<Person />);
-        }
+var PersonList = function() {
         return (
             <div className="person-list">
-                {people}
+                <Person 
+                    name="Derek Zoolander"
+                    imageUrl="http://uifaces.com/assets/static/images/zoolander.jpg"
+                    job="Male model" />
+                <Person 
+                    name="Donald Knuth"
+                    imageUrl="http://www-cs-faculty.stanford.edu/~uno/don.gif"
+                    job="Clever chap" />
             </div>
         );
-    }
-});
+    };
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
