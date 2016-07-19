@@ -84,10 +84,7 @@
 	        React.createElement(Person, {
 	            name: 'Donald Knuth',
 	            imageUrl: 'http://www-cs-faculty.stanford.edu/~uno/don.gif',
-	            job: 'Clever chap' }),
-	        React.createElement(Person, {
-	            name: 'Ben Young',
-	            job: 'Thinkful student' })
+	            job: 'Clever chap' })
 	    );
 	};
 	
